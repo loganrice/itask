@@ -17,10 +17,12 @@ $(document).ready(function(){
 	//authenticate button
 	$('.btn').click(function(){
 		client.authenticate();
-	})
+	});
 
-	var datastoreManager = client.getDatastoreManager();
-	datastoreManager.openDefaultDatastore(function (error, datastore) {
+	//add task button
+	$('.add').click(function(){
+		var datastoreManager = client.getDatastoreManager();
+		datastoreManager.openDefaultDatastore(function (error, datastore) {
 	    if (error) {
 	        alert('Error opening default datastore: ' + error);
 	    }
@@ -34,18 +36,10 @@ $(document).ready(function(){
 	    taskname: 'Buy milk',
 	    completed: false,
 	    created: new Date()
-
+	    });
 	    // show task name in list
 	    var taskname = firstTask.get('taskname');
-	    $('#tasks').append("<li class='task'>" + taskname + "</li>")
+	    $('#tasks').append("<li class='task'>" + taskname + "</li>");
 	});
-
-	//add task button
-	$('.add').click(function(){
-
-	})
-})
-
-
 
 });
