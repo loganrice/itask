@@ -3,7 +3,6 @@ var taskTable;
 $(document).ready(function(){
 	var appKey = 'ca2w8rewh811swk';
 	var client = new Dropbox.Client({key: appKey});
-	console.log(client);
 	// Try to finish OAuth authorization.
 	client.authenticate({interactive: false}, function (error) {
 	    if (error) {
@@ -33,7 +32,7 @@ $(document).ready(function(){
 	});
 
 	// reads all tasks and adds them to html
-	taskQuery(taskTable);
+	taskQuery();
 	//add task button
 	$('.add').click(function(){
 			addTask();
@@ -52,9 +51,9 @@ var addTask = function(){
     $('#tasks').append("<li class='task'>" + taskname + "</li>");
 }
 
-var taskQuery = function(taskTable){
+var taskQuery = function(){
 	var results = taskTable.query();
-	for(i; results.length; i++){
+	for(i; i < results.length; i++){
 		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
-	}
+	};
 }
