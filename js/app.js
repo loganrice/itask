@@ -50,7 +50,7 @@ var addTask = function(){
     var taskname = firstTask.get('taskname');
     $('#tasks').append("<li class='task'>" + taskname + "</li>");
     var results = taskTable.query();
-	for(i; i < results.length; i++){
+	for(var i = 0; i < results.length; i++){
 		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
 	};
 }
