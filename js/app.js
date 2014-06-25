@@ -32,6 +32,8 @@ $(document).ready(function(){
 	    taskTable = datastore.getTable('tasks');
 	});
 
+	// reads all tasks and adds them to html
+	taskQuery(taskTable);
 	//add task button
 	$('.add').click(function(){
 			addTask();
@@ -48,4 +50,11 @@ var addTask = function(){
     // show task name in list
     var taskname = firstTask.get('taskname');
     $('#tasks').append("<li class='task'>" + taskname + "</li>");
+}
+
+var taskQuery = function(taskTable){
+	var results = taskTable.query();
+	for(i; results.length; i++){
+		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
+	}
 }
