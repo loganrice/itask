@@ -32,7 +32,7 @@ $(document).ready(function(){
 	});
 
 	// reads all tasks and adds them to html
-	taskQuery();
+	// taskQuery();
 	//add task button
 	$('.add').click(function(){
 			addTask();
@@ -49,11 +49,15 @@ var addTask = function(){
     // show task name in list
     var taskname = firstTask.get('taskname');
     $('#tasks').append("<li class='task'>" + taskname + "</li>");
-}
-
-var taskQuery = function(){
-	var results = taskTable.query();
+    var results = taskTable.query();
 	for(i; i < results.length; i++){
 		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
 	};
 }
+
+// var taskQuery = function(){
+// 	var results = taskTable.query();
+// 	for(i; i < results.length; i++){
+// 		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
+// 	};
+// }
