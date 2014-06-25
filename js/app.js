@@ -41,7 +41,7 @@ $(document).ready(function(){
 var addTask = function(){
 	// add a task
     var firstTask = taskTable.insert({
-				    taskname: 'Buy milk',
+				    taskname: 'Buy bread',
 				    completed: false,
 				    created: new Date()
 				});
