@@ -23,23 +23,23 @@ $(document).ready(function(){
 	$('.add').click(function(){
 		var datastoreManager = client.getDatastoreManager();
 		datastoreManager.openDefaultDatastore(function (error, datastore) {
-	    if (error) {
-	        alert('Error opening default datastore: ' + error);
-	    }
+		    if (error) {
+		        alert('Error opening default datastore: ' + error);
+		    }
 
-	    // Now you have a datastore. The next few examples can be included here.
-	    // define table name
-	    var taskTable = datastore.getTable('tasks');
+		    // Now you have a datastore. The next few examples can be included here.
+		    // define table name
+		    var taskTable = datastore.getTable('tasks');
 
-	    // add a task
-	    var firstTask = taskTable.insert({
-	    taskname: 'Buy milk',
-	    completed: false,
-	    created: new Date()
-	    });
-	    // show task name in list
-	    var taskname = firstTask.get('taskname');
-	    $('#tasks').append("<li class='task'>" + taskname + "</li>");
+		    // add a task
+		    var firstTask = taskTable.insert({
+						    taskname: 'Buy milk',
+						    completed: false,
+						    created: new Date()
+						});
+		    // show task name in list
+		    var taskname = firstTask.get('taskname');
+		    $('#tasks').append("<li class='task'>" + taskname + "</li>");
+		});
 	});
-
 });
